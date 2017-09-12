@@ -13,7 +13,7 @@ import com.gor_lak.filRouge.ProxiBanque.metier.Gerant;
  */
 public interface Idao {
 	public void ajouterClient(Client cl);
-	public void seConnecter (String login, String mdp);
+	public void seConnecter (String login1, String mdp1);
 	public void creerCompte(Compte c);
 	public void modifierCompte(Compte c);
 	public void supprimerCompte(Compte c);

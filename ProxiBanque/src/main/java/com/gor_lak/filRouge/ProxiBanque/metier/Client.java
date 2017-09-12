@@ -16,6 +16,7 @@ public class Client {
 	private int telephone;
 	
 	
+	
 public int getNumClient() {
 		return numClient;
 	}

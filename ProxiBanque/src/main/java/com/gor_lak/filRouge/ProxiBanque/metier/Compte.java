@@ -6,7 +6,25 @@ package com.gor_lak.filRouge.ProxiBanque.metier;
  */
 public class Compte {
 
+private int numeroCompte;
 private int solde;
+private int dateOuverture;
+
+
+
+
+public int getNumeroCompte() {
+	return numeroCompte;
+}
+public void setNumeroCompte(int numeroCompte) {
+	this.numeroCompte = numeroCompte;
+}
+public int getDateOuverture() {
+	return dateOuverture;
+}
+public void setDateOuverture(int dateOuverture) {
+	this.dateOuverture = dateOuverture;
+}
 private Client monClient;
 private Carte maCarte;
 

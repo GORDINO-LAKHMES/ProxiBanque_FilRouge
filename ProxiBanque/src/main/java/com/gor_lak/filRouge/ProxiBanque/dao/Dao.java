@@ -1,5 +1,9 @@
 package com.gor_lak.filRouge.ProxiBanque.dao;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
 import com.gor_lak.filRouge.ProxiBanque.metier.Auditeur;
 import com.gor_lak.filRouge.ProxiBanque.metier.Client;
 import com.gor_lak.filRouge.ProxiBanque.metier.Compte;
@@ -16,25 +20,147 @@ public class Dao implements Idao {
 	@Override
 	public void ajouterClient(Client c) {
 		// TODO Auto-generated method stub
-		System.out.println("j'ai ajout� un client");
+		try {
+			// 1- charger le pilote
+			Class.forName("com.mysql.jdbc.Driver");
+			//2- adresse de la BDD
+			String adresse="jdbc:mysql://localhost:3306/proxibanque2";
+			String login="root";
+			String mdp="";
+			
+			//3- se connecter a la BDD
+			Connection con=DriverManager.getConnection(adresse, login, mdp);
+			
+			//4-envoyer la requête 
+		
+			String requete="INSERT INTO client (nom, prenom, email, adresse, telephone) VALUES(?,?,?,?,?)"; 
+			
+			PreparedStatement ps=con.prepareStatement(requete);
+			ps.setString(1, c.getNom());
+			ps.setString(2, c.getPrenom());
+			ps.setString(3, c.getEmail());
+			ps.setString(4, c.getAdresse());
+			ps.setInt(5, c.getTelephone());
+			ps.executeUpdate();
+		
+			//5-recuperer le resultat
+			
+			//6-liberer les ressources
+			ps.close();
+			con.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	@Override
-	public void seConnecter(String login, String mdp) {
+	public void seConnecter(String login1, String mdp1) {
 		// TODO Auto-generated method stub
-		System.out.println("je suis connect�");
+		try {
+			// 1- charger le pilote
+			Class.forName("com.mysql.jdbc.Driver");
+			//2- adresse de la BDD
+			String adresse="jdbc:mysql://localhost:3306/proxibanque2";
+			String login="root";
+			String mdp="";
+			
+			//3- se connecter a la BDD
+			Connection con=DriverManager.getConnection(adresse, login, mdp);
+			
+			//4-envoyer la requête 
+		
+			String requete="INSERT INTO Conseiller (login1, mdp1) VALUES(?,?)"; 
+			
+			PreparedStatement ps=con.prepareStatement(requete);
+			ps.setString(1, login1);
+			ps.setString(2,mdp1);
+	
+			ps.executeUpdate();
+		
+			//5-recuperer le resultat
+			
+			//6-liberer les ressources
+			ps.close();
+			con.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void creerCompte(Compte c) {
-		// TODO Auto-generated method stub
-		System.out.println("j'ai cree un compte");
+		try {
+			// 1- charger le pilote
+			Class.forName("com.mysql.jdbc.Driver");
+			//2- adresse de la BDD
+			String adresse="jdbc:mysql://localhost:3306/proxibanque2";
+			String login="root";
+			String mdp="";
+			
+			//3- se connecter a la BDD
+			Connection con=DriverManager.getConnection(adresse, login, mdp);
+			
+			//4-envoyer la requête 
+		
+			String requete="INSERT INTO compte (numeroCompte, solde, dateOuverture, decouvert, taux ) VALUES(?,?,?)"; 
+			
+			PreparedStatement ps=con.prepareStatement(requete);
+			ps.setInt(1, c.getNumeroCompte());
+			ps.setInt(2, c.getSolde());
+			ps.setInt(3, c.getDateOuverture());
+			//ps.setDouble(2, );
+			
+			ps.executeUpdate();
+		
+			//5-recuperer le resultat
+			
+			//6-liberer les ressources
+			ps.close();
+			con.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void modifierCompte(Compte c) {
-		// TODO Auto-generated method stub
-		System.out.println("je modifie le compte");
+		try {
+			// 1- charger le pilote
+			Class.forName("com.mysql.jdbc.Driver");
+			//2- adresse de la BDD
+			String adresse="jdbc:mysql://localhost:3306/proxibanque2";
+			String login="root";
+			String mdp="";
+			
+			//3- se connecter a la BDD
+			Connection con=DriverManager.getConnection(adresse, login, mdp);
+			
+			//4-envoyer la requête 
+		
+			String requete="UPDATE compte set  solde=?, "+ " Where idCompte=?";
+			
+			PreparedStatement ps=con.prepareStatement(requete);
+		
+			ps.setInt(1, c.getSolde());
+			ps.setInt(2, idCompte);
+			//ps.setDouble(2, );
+			
+			ps.executeUpdate();
+		
+			//5-recuperer le resultat
+			
+			//6-liberer les ressources
+			ps.close();
+			con.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

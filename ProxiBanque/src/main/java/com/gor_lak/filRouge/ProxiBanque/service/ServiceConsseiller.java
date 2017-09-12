@@ -17,7 +17,7 @@ public class ServiceConsseiller implements IserviceConseiller {
 	}
 
 	@Override
-	public void seConnecter(String login, String mdp) {
+	public void seConnecter(String login1, String mdp1) {
 		// TODO Auto-generated method stub
 		dao.seConnecter(null, null);
 	}
