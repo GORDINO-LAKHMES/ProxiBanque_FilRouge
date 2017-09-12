@@ -5,6 +5,7 @@ package com.gor_lak.filRouge.ProxiBanque.metier;
  *
  */
 public class Compte {
+
 private int solde;
 private Client monClient;
 private Carte maCarte;
