@@ -6,4 +6,6 @@ package com.gor_lak.filRouge.ProxiBanque.metier;
  */
 public class Entreprise extends Client {
 
+	
+
 }
