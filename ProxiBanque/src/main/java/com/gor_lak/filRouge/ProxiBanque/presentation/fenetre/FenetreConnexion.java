@@ -49,8 +49,9 @@ public class FenetreConnexion extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				 Employe employe = dao.seConnecter(saisieLogin.getText(),(int) Integer.parseInt(saisieMdp.getText()));
-				 
+				 //Employe employe = dao.seConnecter(saisieLogin.getText(),(int) Integer.parseInt(saisieMdp.getText()));
+				FenetreUtilisateur f = new FenetreUtilisateur((int) Integer.parseInt(saisieLogin.getText()));
+				f.setVisible(true);
 			}
 		});
 		
