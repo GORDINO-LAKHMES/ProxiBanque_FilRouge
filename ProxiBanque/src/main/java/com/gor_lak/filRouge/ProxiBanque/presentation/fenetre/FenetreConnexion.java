@@ -1,11 +1,18 @@
 package com.gor_lak.filRouge.ProxiBanque.presentation.fenetre;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import com.gor_lak.filRouge.ProxiBanque.dao.Dao;
+import com.gor_lak.filRouge.ProxiBanque.dao.Idao;
+import com.gor_lak.filRouge.ProxiBanque.metier.Employe;
 
 public class FenetreConnexion extends JFrame {
 	
@@ -17,8 +24,10 @@ public class FenetreConnexion extends JFrame {
 	private JButton boutonAnnuler = new JButton("Annuler");
 	private JLabel labelLogin = new JLabel("Login");
 	private JLabel labelMdp = new JLabel("Mot de passe");
-	private static JTextField saisieLogin = new JTextField(20);
-	private static JTextField saisieMdp = new JTextField(20);
+	private JTextField saisieLogin = new JTextField(20);
+	private JTextField saisieMdp = new JTextField(20);
+	private Idao dao = new Dao();
+	
 	
 	public FenetreConnexion()
 	{
@@ -35,7 +44,15 @@ public class FenetreConnexion extends JFrame {
 		conteneurMdp.setLayout(new BoxLayout(conteneurMdp, BoxLayout.LINE_AXIS));
 		conteneurBouton.setLayout(new BoxLayout(conteneurBouton, BoxLayout.LINE_AXIS));
 		
-		
+		boutonConnexion.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				 Employe employe = dao.seConnecter(saisieLogin.getText(),(int) Integer.parseInt(saisieMdp.getText()));
+				 
+			}
+		});
 		
 		conteneurLogin.add(labelLogin);
 		conteneurLogin.add(saisieLogin);

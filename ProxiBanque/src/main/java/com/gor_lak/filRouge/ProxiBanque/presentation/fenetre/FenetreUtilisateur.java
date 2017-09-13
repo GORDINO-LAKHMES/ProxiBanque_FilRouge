@@ -23,24 +23,7 @@ public class FenetreUtilisateur extends JFrame {
 	private static JTabbedPane tabbedGestionCompte = new JTabbedPane();	
 	private static JTabbedPane tabbedOperationsBanquaire = new JTabbedPane(); 
 	
-	private static JPanel conteneurAuditComptes = new JPanel(); 
-	private static JPanel conteneurAjoutConseiller = new JPanel(); 
-	private static JPanel conteneurModConseiller = new JPanel(); 
-	private static JPanel conteneurSuppConseiller = new JPanel(); 
-	private static JPanel conteneurAjoutClient = new JPanel(); 
-	private static JPanel conteneurModClient = new JPanel(); 
-	private static JPanel conteneurSuppClient = new JPanel(); 
-	private static JPanel conteneurCreerCompte = new JPanel();
-	private static JPanel conteneurModCompte = new JPanel();
-	private static JPanel conteneurSuppCompte = new JPanel();
-	private static JPanel conteneurVirement = new JPanel();
-	private static JPanel conteneurAjoutCB = new JPanel();
-	private static JPanel conteneurModCB = new JPanel();
-	private static JPanel conteneurSuppCB = new JPanel();
 	
-	private static JComboBox<Employe> comboConseillers = new JComboBox<Employe>();
-	private static JComboBox<Client> comboClients = new JComboBox<Client>();
-	private static JComboBox<Compte> comboComptes = new JComboBox<Compte>();
 	
 	private static JButton boutonValider = new JButton("Valider");
 	private static JButton boutonAnnuler = new JButton("Annuler");
@@ -57,14 +40,14 @@ public class FenetreUtilisateur extends JFrame {
 		
 		conteneurFenetre.setLayout(new BoxLayout(conteneurFenetre, BoxLayout.LINE_AXIS));
 
-		conteneurModConseiller.add(comboConseillers);
-		conteneurSuppConseiller.add(comboConseillers);
+		//conteneurModConseiller.add(comboConseillers);
+		//conteneurSuppConseiller.add(comboConseillers);
 		
-		tabbedGestionConseiller.add("Ajouter un conseiller",conteneurAjoutConseiller);
-		tabbedGestionConseiller.add("Modifier un conseiller",conteneurModConseiller);
-		tabbedGestionConseiller.add("Supprimer un conseiller",conteneurSuppConseiller);
+		tabbedGestionConseiller.add("Ajouter un conseiller",PanelFenetre.AjoutConseiller());
+		tabbedGestionConseiller.add("Modifier un conseiller",PanelFenetre.ModConseiller());
+		tabbedGestionConseiller.add("Supprimer un conseiller",PanelFenetre.SuppConseiller());
 		
-		conteneurCreerCompte.add(comboClients);
+		/*conteneurCreerCompte.add(comboClients);
 		conteneurModCompte.add(comboClients);
 		conteneurSuppCompte.add(comboClients);
 		conteneurAjoutCB.add(comboClients);
@@ -74,20 +57,20 @@ public class FenetreUtilisateur extends JFrame {
 		conteneurSuppCompte.add(comboComptes);
 		conteneurAjoutCB.add(comboComptes);
 		conteneurModCB.add(comboComptes);
-		conteneurSuppCB.add(comboComptes);
+		conteneurSuppCB.add(comboComptes);*/
 		
-		tabbedGestionCompte.add("Créer un compte",conteneurCreerCompte);
-		tabbedGestionCompte.add("Modifier un compte",conteneurModCompte);
-		tabbedGestionCompte.add("Cloturer un compte",conteneurSuppCompte);
-		tabbedGestionCompte.add("Associer une CB",conteneurAjoutCB);
-		tabbedGestionCompte.add("Modifier une CB",conteneurModCB);
-		tabbedGestionCompte.add("Desactiver une CB",conteneurSuppCB);
+		tabbedGestionCompte.add("Créer un compte",PanelFenetre.CreerCompte());
+		tabbedGestionCompte.add("Modifier un compte",PanelFenetre.ModCompte());
+		tabbedGestionCompte.add("Cloturer un compte",PanelFenetre.SuppCompte());
+		tabbedGestionCompte.add("Associer une CB",PanelFenetre.AjoutCB());
+		tabbedGestionCompte.add("Modifier une CB",PanelFenetre.ModCB());
+		tabbedGestionCompte.add("Desactiver une CB",PanelFenetre.SuppCB());
 		
-		tabbedOperationsBanquaire.add("Virement",conteneurVirement);
+		tabbedOperationsBanquaire.add("Virement",PanelFenetre.Virement());
 		
-		tabbedGestionClient.add("Ajouter un client",conteneurAjoutClient);
-		tabbedGestionClient.add("Modifier un client",conteneurModClient);
-		tabbedGestionClient.add("Supprimer un client",conteneurSuppClient);
+		tabbedGestionClient.add("Ajouter un client",PanelFenetre.AjoutClient());
+		tabbedGestionClient.add("Modifier un client",PanelFenetre.ModClient());
+		tabbedGestionClient.add("Supprimer un client",PanelFenetre.SuppClient());
 		tabbedGestionClient.add("Gerer les comptes",tabbedGestionCompte);
 		tabbedGestionClient.add("Effectuer des opérations",tabbedOperationsBanquaire);
 		
@@ -100,15 +83,15 @@ public class FenetreUtilisateur extends JFrame {
 			tabbedGerant.addTab("Gestion des conseillers", tabbedGestionConseiller);
 			tabbedGerant.addTab("Gestion des clients", tabbedGestionClient);
 			tabbedGerant.addTab("Opérations banquaires", tabbedOperationsBanquaire);
-			tabbedGerant.addTab("Audit des comptes", conteneurAuditComptes);
+			tabbedGerant.addTab("Audit des comptes", PanelFenetre.AuditComptes());
 			conteneurFenetre.add(tabbedGerant);
 		}else if(id==2){
 			tabbedConseiller.addTab("Gestion des clients", tabbedGestionClient);
 			tabbedConseiller.addTab("Opérations banquaires", tabbedOperationsBanquaire);
-			tabbedConseiller.addTab("Audit des comptes", conteneurAuditComptes);
+			tabbedConseiller.addTab("Audit des comptes", PanelFenetre.AuditComptes());
 			conteneurFenetre.add(tabbedConseiller);
 		}else if(id==3){
-			tabbedAudit.addTab("Audit des comptes", conteneurAuditComptes);
+			tabbedAudit.addTab("Audit des comptes", PanelFenetre.AuditComptes());
 			conteneurFenetre.add(tabbedAudit);
 		}
 		
