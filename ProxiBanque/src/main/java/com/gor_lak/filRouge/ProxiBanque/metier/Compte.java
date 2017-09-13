@@ -6,18 +6,26 @@ package com.gor_lak.filRouge.ProxiBanque.metier;
  */
 public class Compte {
 
-private int numeroCompte;
+private int idCompte;
 private int solde;
 private int dateOuverture;
+private int idClient;
 
 
 
 
-public int getNumeroCompte() {
-	return numeroCompte;
+
+public int getIdClient() {
+	return idClient;
 }
-public void setNumeroCompte(int numeroCompte) {
-	this.numeroCompte = numeroCompte;
+public void setIdClient(int idClient) {
+	this.idClient = idClient;
+}
+public int getIdCompte() {
+	return idCompte;
+}
+public void setIdCompte(int idCompte) {
+	this.idCompte = idCompte;
 }
 public int getDateOuverture() {
 	return dateOuverture;

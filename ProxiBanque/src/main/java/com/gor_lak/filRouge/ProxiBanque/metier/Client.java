@@ -8,20 +8,21 @@ import java.util.List;
  *
  */
 public class Client {
-	private int numClient;
+	private int idClient;
 	private String nom;
 	private String prenom;
 	private String email;
 	private String adresse;
 	private int telephone;
+	private Conseiller monConseiller;
+	private List<Compte> comptes = new ArrayList<Compte>();
 	
 	
-	
-public int getNumClient() {
-		return numClient;
+public int getIdClient() {
+		return idClient;
 	}
 	public void setNumClient(int numClient) {
-		this.numClient = numClient;
+		this.idClient = numClient;
 	}
 	public String getNom() {
 		return nom;
@@ -54,27 +55,26 @@ public int getNumClient() {
 		this.telephone = telephone;
 	}
 
-private Conseiller monConseiller;
-private List<Compte> comptes = new ArrayList<Compte>();
 
 
-public Conseiller getMonConseiller() {
-	return monConseiller;
-}
-public void setMonConseiller(Conseiller monConseiller) {
-	this.monConseiller = monConseiller;
-}
-public List<Compte> getComptes() {
-	return comptes;
-}
-public void setComptes(List<Compte> comptes) {
-	this.comptes = comptes;
-}
 
-public List<Compte> ajouterCompte(Compte Cm){
-	comptes.add(Cm);
-	return comptes;
-}
+	public Conseiller getMonConseiller() {
+		return monConseiller;
+	}
+	public void setMonConseiller(Conseiller monConseiller) {
+		this.monConseiller = monConseiller;
+	}
+	public List<Compte> getComptes() {
+		return comptes;
+	}
+	public void setComptes(List<Compte> comptes) {
+		this.comptes = comptes;
+	}
+	
+	public List<Compte> ajouterCompte(Compte Cm){
+		comptes.add(Cm);
+		return comptes;
+	}
 
 
 
