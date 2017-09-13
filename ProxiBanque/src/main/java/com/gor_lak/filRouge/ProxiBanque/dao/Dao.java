@@ -36,7 +36,7 @@ public class Dao implements Idao {
 			
 			//4-envoyer la requÃªte 
 		
-			String requete="INSERT INTO Employe (login, motDePasse ) VALUES(?,?)"; 
+			String requete="SELECT * FROM Employe Where login=?"; 
 			
 			PreparedStatement ps=con.prepareStatement(requete);
 			ps.setString(1,em.getLogin());
