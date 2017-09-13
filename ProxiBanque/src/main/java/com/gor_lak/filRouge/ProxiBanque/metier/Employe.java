@@ -9,7 +9,7 @@ public class Employe {
 	private String nom;
 	private String prenom;
 	private String email;
-	private String login;
+	private int login;
 	private int motDePasse;
 	private int tel;
 	private String adresse;
@@ -46,10 +46,10 @@ public class Employe {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getLogin() {
+	public int getLogin() {
 		return login;
 	}
-	public void setLogin(String login) {
+	public void setLogin(int login) {
 		this.login = login;
 	}
 	public int getTel() {

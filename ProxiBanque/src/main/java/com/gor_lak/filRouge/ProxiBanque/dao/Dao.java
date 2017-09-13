@@ -21,8 +21,9 @@ public class Dao implements Idao {
 
 	
 	@Override
-	public Employe seConnecter() {
+	public Employe seConnecter(String identifiant, int motDePasse) {
 		Employe em= new Employe();
+	
 		try {
 			// 1- charger le pilote
 			Class.forName("com.mysql.jdbc.Driver");
@@ -39,12 +40,32 @@ public class Dao implements Idao {
 			String requete="SELECT * FROM Employe Where login=?"; 
 			
 			PreparedStatement ps=con.prepareStatement(requete);
-			ps.setString(1,em.getLogin());
-			ps.setInt(2,em.getMotDePasse());
+			ps.setString(1,identifiant);
+			//ps.setInt(2,em.getMotDePasse());
 	
-			ps.executeUpdate();
-		
+			
 			//5-recuperer le resultat
+			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				int password = rs.getInt("motDePasse");
+				if(password==motDePasse) {
+				em.getId();
+				em.getNom();
+				em.getPrenom();
+				em.getAdresse();
+				em.getEmail();
+				em.getMonAgence();
+				em.getTel();
+				
+					
+				}
+				else {
+					System.out.println("Votre mot de passe est incerrect :ATTENTION");
+				}
+				
+			}
+			
 			
 			//6-liberer les ressources
 			ps.close();
@@ -56,6 +77,58 @@ public class Dao implements Idao {
 		return em;
 	}
 	
+	/*public boolean authentification (String login1 ,String motDePasse) {
+		//boolean authentification=true;
+		Employe em= new Employe();
+		try {
+			// 1- charger le pilote
+			Class.forName("com.mysql.jdbc.Driver");
+			//2- adresse de la BDD
+			String adresse="jdbc:mysql://localhost:3306/proxibanque2";
+			String login="root";
+			String mdp="";
+			
+			//3- se connecter a la BDD
+			Connection con=DriverManager.getConnection(adresse, login, mdp);
+			
+			//4-envoyer la requÃªte 
+		
+			String requete="SELECT * FROM Employe"; 
+			
+			PreparedStatement ps=con.prepareStatement(requete);
+			 ResultSet resultat = ps.executeQuery();
+			  while(resultat.next())
+	            {
+	 
+	               if   ((login1.equals(resultat.getString("Login")))==em.getLogin())
+	            		   { 
+	 
+	 
+	                  return true;
+	 
+	 
+	 
+	               }
+	              
+	 
+	            }
+	         }
+	            catch (Exception e)
+	            {
+	               System.out.println("echec pilote : "+e);
+	            }
+		return false;
+	
+		}*/
+		
+		
+	
+    
+    	
+    	
+    	
+    	
+    
 	@Override
 	public void lireEmploye(Employe em) {
 		try {
@@ -160,7 +233,7 @@ public class Dao implements Idao {
 			PreparedStatement ps=con.prepareStatement(requete);
 		
 			
-			ps.setString(1, g.getLogin());
+			ps.setInt(1, g.getLogin());
 			ps.setInt(2, g.getTel());
 			ps.setString(3, g.getAdresse());
 			ps.setString(4, g.getEmail());
@@ -269,7 +342,7 @@ public class Dao implements Idao {
 			String requete="INSERT INTO Conseiller (login, tel,adresse, email, nom, prenom  ) VALUES(?,?,?,?,?,?)"; 
 			
 			PreparedStatement ps=con.prepareStatement(requete);
-			ps.setString(1, c.getLogin());
+			ps.setInt(1, c.getLogin());
 			ps.setInt(3, c.getTel());
 			ps.setString(4, c.getAdresse());
 			ps.setString(5, c.getEmail());
@@ -310,7 +383,7 @@ public class Dao implements Idao {
 			PreparedStatement ps=con.prepareStatement(requete);
 		
 	
-			ps.setString(1, cn.getLogin());
+			ps.setInt(1, cn.getLogin());
 			ps.setInt(2, cn.getTel());
 			ps.setString(3, cn.getAdresse());
 			ps.setString(4, cn.getEmail());
@@ -666,6 +739,9 @@ public class Dao implements Idao {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
+	
 
 
 
