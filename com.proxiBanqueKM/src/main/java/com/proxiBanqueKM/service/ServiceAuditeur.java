@@ -1,6 +1,6 @@
-package com.gor_lak.filRouge.ProxiBanque.service;
+package com.proxiBanqueKM.service;
 
-import com.gor_lak.filRouge.ProxiBanque.metier.Auditeur;
+import com.proxiBanqueKM.metier.Auditeur;
 
 public class ServiceAuditeur implements IserviceAuditeur {
 

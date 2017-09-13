@@ -1,4 +1,4 @@
-package com.gor_lak.filRouge.ProxiBanque.metier;
+package com.proxiBanqueKM.metier;
 /**
  * 
  * @author kosseila

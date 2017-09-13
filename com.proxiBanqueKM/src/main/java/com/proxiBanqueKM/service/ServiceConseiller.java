@@ -1,11 +1,9 @@
-package com.gor_lak.filRouge.ProxiBanque.service;
+package com.proxiBanqueKM.service;
 
-import com.gor_lak.filRouge.ProxiBanque.metier.Client;
-import com.gor_lak.filRouge.ProxiBanque.metier.Compte;
-import com.gor_lak.filRouge.ProxiBanque.metier.Conseiller;
-import com.gor_lak.filRouge.ProxiBanque.metier.Gerant;
+import com.proxiBanqueKM.metier.Client;
+import com.proxiBanqueKM.metier.Compte;
 
-public class ServiceGerant implements IserviceGerant {
+public class ServiceConseiller implements IserviceConseiller {
 
 	public void ajouterClient(Client cl) {
 		// TODO Auto-generated method stub
@@ -53,21 +51,6 @@ public class ServiceGerant implements IserviceGerant {
 	}
 
 	public void attribuerClient(Client c) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void ajouterConseiller(Conseiller c) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void modifierConseiller(Gerant g) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void supprimerConseiller(Gerant g) {
 		// TODO Auto-generated method stub
 
 	}

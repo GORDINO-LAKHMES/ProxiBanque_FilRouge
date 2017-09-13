@@ -1,4 +1,4 @@
-package com.gor_lak.filRouge.ProxiBanque.metier;
+package com.proxiBanqueKM.metier;
 /**
  * 
  * @author kosseila
@@ -9,18 +9,10 @@ public class Compte {
 private int idCompte;
 private int solde;
 private int dateOuverture;
-private int idClient;
 
 
 
 
-
-public int getIdClient() {
-	return idClient;
-}
-public void setIdClient(int idClient) {
-	this.idClient = idClient;
-}
 public int getIdCompte() {
 	return idCompte;
 }

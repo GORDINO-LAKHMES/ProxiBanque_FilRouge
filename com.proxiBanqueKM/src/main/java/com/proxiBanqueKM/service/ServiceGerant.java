@@ -1,9 +1,9 @@
-package com.gor_lak.filRouge.ProxiBanque.service;
+package com.proxiBanqueKM.service;
 
-import com.gor_lak.filRouge.ProxiBanque.metier.Client;
-import com.gor_lak.filRouge.ProxiBanque.metier.Compte;
-import com.gor_lak.filRouge.ProxiBanque.metier.Conseiller;
-import com.gor_lak.filRouge.ProxiBanque.metier.Gerant;
+import com.proxiBanqueKM.metier.Client;
+import com.proxiBanqueKM.metier.Compte;
+import com.proxiBanqueKM.metier.Conseiller;
+import com.proxiBanqueKM.metier.Gerant;
 
 public class ServiceGerant implements IserviceGerant {
 

@@ -1,4 +1,4 @@
-package com.gor_lak.filRouge.ProxiBanque.metier;
+package com.proxiBanqueKM.metier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +14,7 @@ public class Client {
 	private String email;
 	private String adresse;
 	private int telephone;
-	private Conseiller monConseiller;
-	private List<Compte> comptes = new ArrayList<Compte>();
+	
 	
 	
 public int getIdClient() {
@@ -55,26 +54,27 @@ public int getIdClient() {
 		this.telephone = telephone;
 	}
 
+private Conseiller monConseiller;
+private List<Compte> comptes = new ArrayList<Compte>();
 
 
+public Conseiller getMonConseiller() {
+	return monConseiller;
+}
+public void setMonConseiller(Conseiller monConseiller) {
+	this.monConseiller = monConseiller;
+}
+public List<Compte> getComptes() {
+	return comptes;
+}
+public void setComptes(List<Compte> comptes) {
+	this.comptes = comptes;
+}
 
-	public Conseiller getMonConseiller() {
-		return monConseiller;
-	}
-	public void setMonConseiller(Conseiller monConseiller) {
-		this.monConseiller = monConseiller;
-	}
-	public List<Compte> getComptes() {
-		return comptes;
-	}
-	public void setComptes(List<Compte> comptes) {
-		this.comptes = comptes;
-	}
-	
-	public List<Compte> ajouterCompte(Compte Cm){
-		comptes.add(Cm);
-		return comptes;
-	}
+public List<Compte> ajouterCompte(Compte Cm){
+	comptes.add(Cm);
+	return comptes;
+}
 
 
 

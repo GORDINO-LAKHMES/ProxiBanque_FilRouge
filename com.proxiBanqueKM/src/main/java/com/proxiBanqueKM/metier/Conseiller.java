@@ -1,4 +1,4 @@
-package com.gor_lak.filRouge.ProxiBanque.metier;
+package com.proxiBanqueKM.metier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,24 +8,13 @@ import java.util.List;
  *
  */
 public class Conseiller extends Employe {
-private int idConseiller;
 private Gerant monGerant;
 private List<Client> clients =new ArrayList<Client>();
 
 
 // getters et setters 
-
-
 public List<Client> getClients() {
 	return clients;
-}
-
-public int getIdConseiller() {
-	return idConseiller;
-}
-
-public void setIdConseiller(int idConseiller) {
-	this.idConseiller = idConseiller;
 }
 
 public void setClients(List<Client> clients) {
