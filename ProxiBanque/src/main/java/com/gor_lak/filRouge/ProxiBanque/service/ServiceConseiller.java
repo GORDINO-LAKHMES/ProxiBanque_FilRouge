@@ -90,7 +90,7 @@ public class ServiceConseiller implements IserviceConseiller {
 	}
 
 	@Override
-	public Employe seConnecter() {
+	public Employe seConnecter(String identifiant, int motDePasse) {
 		// TODO Auto-generated method stub
 		return null;
 	}

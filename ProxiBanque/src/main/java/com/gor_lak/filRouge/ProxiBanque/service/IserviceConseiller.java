@@ -30,7 +30,7 @@ public interface IserviceConseiller {
 		public void lireCompte (Compte c); 
 		public void simulationCompte(Compte c);
 		//Employe
-		public Employe seConnecter();
+		public Employe seConnecter(String identifiant, int motDePasse);
 		public void lireEmploye (Employe em); 
 		//Particulier
 		public void seConnecterParticulier (String login1, String mdp1);

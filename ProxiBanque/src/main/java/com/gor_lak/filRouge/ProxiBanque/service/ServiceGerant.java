@@ -91,7 +91,7 @@ public class ServiceGerant implements IserviceGerant {
 	}
 
 	@Override
-	public Employe seConnecter() {
+	public Employe seConnecter(String identifiant, int motDePasse) {
 		// TODO Auto-generated method stub
 		return null;
 	}
