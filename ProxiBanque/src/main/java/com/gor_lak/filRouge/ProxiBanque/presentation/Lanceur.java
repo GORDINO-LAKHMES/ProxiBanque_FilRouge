@@ -6,8 +6,6 @@ import com.gor_lak.filRouge.ProxiBanque.presentation.fenetre.FenetreConnexion;
 
 
 
-
-
 /**
  * 
  * @author kosseila

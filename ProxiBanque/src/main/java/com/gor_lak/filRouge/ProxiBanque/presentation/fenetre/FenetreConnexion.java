@@ -35,6 +35,8 @@ public class FenetreConnexion extends JFrame {
 		conteneurMdp.setLayout(new BoxLayout(conteneurMdp, BoxLayout.LINE_AXIS));
 		conteneurBouton.setLayout(new BoxLayout(conteneurBouton, BoxLayout.LINE_AXIS));
 		
+		
+		
 		conteneurLogin.add(labelLogin);
 		conteneurLogin.add(saisieLogin);
 		
