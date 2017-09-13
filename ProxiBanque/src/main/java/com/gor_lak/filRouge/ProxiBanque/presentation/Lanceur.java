@@ -16,7 +16,7 @@ public class Lanceur {
 
 	public static void main(String[] args) {
 		
-		FenetreUtilisateur f = new FenetreUtilisateur(1);
+		FenetreConnexion f = new FenetreConnexion();
 		
 		f.setVisible(true);
 	}
