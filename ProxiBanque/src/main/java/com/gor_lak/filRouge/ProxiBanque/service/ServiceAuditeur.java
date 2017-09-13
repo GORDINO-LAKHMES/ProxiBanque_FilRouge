@@ -9,4 +9,10 @@ public class ServiceAuditeur implements IserviceAuditeur {
 
 	}
 
+	@Override
+	public void seConnecterAuditeur(String login1, String mdp1) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

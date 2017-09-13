@@ -43,6 +43,7 @@ public interface Idao {
 	public void simulationCompte(Compte c);
 	//Employe
 	public Employe seConnecter();
+	public void lireEmploye (Employe em); 
 	//Particulier
 	public void seConnecterParticulier (String login1, String mdp1);
 	public void lireCompteParticulier (Particulier p); 

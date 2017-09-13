@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.List;
+
 
 import com.gor_lak.filRouge.ProxiBanque.metier.Auditeur;
 import com.gor_lak.filRouge.ProxiBanque.metier.Client;
@@ -55,6 +55,56 @@ public class Dao implements Idao {
 		}
 		return em;
 	}
+	
+	@Override
+	public void lireEmploye(Employe em) {
+		try {
+			// 1- charger le pilote
+			Class.forName("com.mysql.jdbc.Driver");
+			//2- adresse de la BDD
+			String adresse="jdbc:mysql://localhost:3306/proxibanque2";
+			String login="root";
+			String mdp="";
+			
+			//3- se connecter a la BDD
+			Connection con=DriverManager.getConnection(adresse, login, mdp);
+			
+			//4-envoyer la requête 
+			
+			String requete="SELECT * FROM Employe Where id= ?";
+			
+
+			PreparedStatement ps=con.prepareStatement(requete);
+			ps.setInt(1, em.getId());
+		
+			//5-recuperer le resultat
+			ResultSet rs= ps.executeQuery();
+			rs.next();
+			
+			//t.setId(rs.getInt("id"));
+				
+			em.setId(rs.getInt("id"));	
+			em.setNom(rs.getString("Nom"));
+			em.setPrenom(rs.getString("Prenom"));
+			em.setTel(rs.getInt("Tel"));
+			em.setAdresse(rs.getString("Adresse"));
+			
+			
+			
+				
+
+			//6-liberer les ressources
+			ps.close();
+			con.close();
+			
+			
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+	}
+	
 	@Override
 	public void seConnecterGerant(String login1, int mdp1) {
 		try {
@@ -616,6 +666,10 @@ public class Dao implements Idao {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+	
 
 	
 
