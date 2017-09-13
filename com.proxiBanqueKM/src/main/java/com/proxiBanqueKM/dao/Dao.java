@@ -240,7 +240,44 @@ public class Dao implements Idao {
 	}
 
 	public void simulationCompte(Client c) {
+		try {
+			// 1- charger le pilote
+			Class.forName("com.mysql.jdbc.Driver");
+			//2- adresse de la BDD
+			String adresse="jdbc:mysql://localhost:3306/proxibanque2";
+			String login="root";
+			String mdp="";
+			
+			//3- se connecter a la BDD
+			Connection con=DriverManager.getConnection(adresse, login, mdp);
+			
+			//4-envoyer la requête 
+			
+			String requete="SELECT * FROM Client Where idClient= ?";
+			
+
+			PreparedStatement ps=con.prepareStatement(requete);
+			ps.setInt(1, c.getIdClient());
 		
+			//5-recuperer le resultat
+			ResultSet rs= ps.executeQuery();
+			rs.next();
+			
+			//t.setId(rs.getInt("id"));
+				
+		
+			
+				
+
+			//6-liberer les ressources
+			ps.close();
+			con.close();
+			
+			
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
 	}
 
