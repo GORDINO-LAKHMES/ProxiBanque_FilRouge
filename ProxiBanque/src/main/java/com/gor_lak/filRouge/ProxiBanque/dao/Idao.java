@@ -5,6 +5,7 @@ import com.gor_lak.filRouge.ProxiBanque.metier.Client;
 import com.gor_lak.filRouge.ProxiBanque.metier.Compte;
 import com.gor_lak.filRouge.ProxiBanque.metier.Conseiller;
 import com.gor_lak.filRouge.ProxiBanque.metier.Courant;
+import com.gor_lak.filRouge.ProxiBanque.metier.Employe;
 import com.gor_lak.filRouge.ProxiBanque.metier.Entreprise;
 import com.gor_lak.filRouge.ProxiBanque.metier.Epargne;
 import com.gor_lak.filRouge.ProxiBanque.metier.Gerant;
@@ -41,7 +42,7 @@ public interface Idao {
 	public void lireCompte (Compte c); 
 	public void simulationCompte(Compte c);
 	//Employe
-	
+	public Employe seConnecter();
 	//Particulier
 	public void seConnecterParticulier (String login1, String mdp1);
 	public void lireCompteParticulier (Particulier p); 

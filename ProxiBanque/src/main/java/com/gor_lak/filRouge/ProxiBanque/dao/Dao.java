@@ -11,6 +11,7 @@ import com.gor_lak.filRouge.ProxiBanque.metier.Client;
 import com.gor_lak.filRouge.ProxiBanque.metier.Compte;
 import com.gor_lak.filRouge.ProxiBanque.metier.Conseiller;
 import com.gor_lak.filRouge.ProxiBanque.metier.Courant;
+import com.gor_lak.filRouge.ProxiBanque.metier.Employe;
 import com.gor_lak.filRouge.ProxiBanque.metier.Entreprise;
 import com.gor_lak.filRouge.ProxiBanque.metier.Epargne;
 import com.gor_lak.filRouge.ProxiBanque.metier.Gerant;
@@ -18,6 +19,42 @@ import com.gor_lak.filRouge.ProxiBanque.metier.Particulier;
 
 public class Dao implements Idao {
 
+	
+	@Override
+	public Employe seConnecter() {
+		Employe em= new Employe();
+		try {
+			// 1- charger le pilote
+			Class.forName("com.mysql.jdbc.Driver");
+			//2- adresse de la BDD
+			String adresse="jdbc:mysql://localhost:3306/proxibanque2";
+			String login="root";
+			String mdp="";
+			
+			//3- se connecter a la BDD
+			Connection con=DriverManager.getConnection(adresse, login, mdp);
+			
+			//4-envoyer la requÃªte 
+		
+			String requete="INSERT INTO Employe (login, motDePasse ) VALUES(?,?)"; 
+			
+			PreparedStatement ps=con.prepareStatement(requete);
+			ps.setString(1,em.getLogin());
+			ps.setInt(2,em.getMotDePasse());
+	
+			ps.executeUpdate();
+		
+			//5-recuperer le resultat
+			
+			//6-liberer les ressources
+			ps.close();
+			con.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return em;
+	}
 	@Override
 	public void seConnecterGerant(String login1, int mdp1) {
 		try {
@@ -73,7 +110,7 @@ public class Dao implements Idao {
 			PreparedStatement ps=con.prepareStatement(requete);
 		
 			
-			ps.setInt(1, g.getLogin());
+			ps.setString(1, g.getLogin());
 			ps.setInt(2, g.getTel());
 			ps.setString(3, g.getAdresse());
 			ps.setString(4, g.getEmail());
@@ -182,7 +219,7 @@ public class Dao implements Idao {
 			String requete="INSERT INTO Conseiller (login, tel,adresse, email, nom, prenom  ) VALUES(?,?,?,?,?,?)"; 
 			
 			PreparedStatement ps=con.prepareStatement(requete);
-			ps.setInt(1, c.getLogin());
+			ps.setString(1, c.getLogin());
 			ps.setInt(3, c.getTel());
 			ps.setString(4, c.getAdresse());
 			ps.setString(5, c.getEmail());
@@ -223,7 +260,7 @@ public class Dao implements Idao {
 			PreparedStatement ps=con.prepareStatement(requete);
 		
 	
-			ps.setInt(1, cn.getLogin());
+			ps.setString(1, cn.getLogin());
 			ps.setInt(2, cn.getTel());
 			ps.setString(3, cn.getAdresse());
 			ps.setString(4, cn.getEmail());
@@ -579,6 +616,8 @@ public class Dao implements Idao {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 	
 

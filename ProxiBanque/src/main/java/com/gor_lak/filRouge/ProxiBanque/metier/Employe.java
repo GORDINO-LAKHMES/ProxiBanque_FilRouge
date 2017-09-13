@@ -9,7 +9,8 @@ public class Employe {
 	private String nom;
 	private String prenom;
 	private String email;
-	private int login;
+	private String login;
+	private int motDePasse;
 	private int tel;
 	private String adresse;
 	private Agence monAgence;
@@ -45,10 +46,10 @@ public class Employe {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getLogin() {
+	public String getLogin() {
 		return login;
 	}
-	public void setLogin(int login) {
+	public void setLogin(String login) {
 		this.login = login;
 	}
 	public int getTel() {
@@ -64,6 +65,13 @@ public class Employe {
 		this.adresse = adresse;
 	}
 	
+	
+	public int getMotDePasse() {
+		return motDePasse;
+	}
+	public void setMotDePasse(int motDePasse) {
+		this.motDePasse = motDePasse;
+	}
 	public Employe() {
 		super();
 	}
